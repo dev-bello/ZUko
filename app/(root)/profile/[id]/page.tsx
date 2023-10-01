@@ -16,6 +16,9 @@ async function Page({ params }: { params: { id: string } }) {
 
   if (!userInfo?.onboarded) redirect("/onboarding");
 
+  // Log the userInfo to the console
+  console.log("userInfo:", userInfo);
+
   return (
     <section>
       <ProfileHeader
@@ -40,7 +43,6 @@ async function Page({ params }: { params: { id: string } }) {
                   className="object-contain"
                 />
                 <p className="max-sm:hidden">{tab.label}</p>
-
                 {tab.label === "Posts" && (
                   <p className="ml-1 rounded-sm bg-light-4 px-2 py-1 text-light-2 !text-tiny-medium">
                     {userInfo?.posts?.length}

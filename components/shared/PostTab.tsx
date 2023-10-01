@@ -7,7 +7,7 @@ interface Props {
   accountId: string;
   accountType: string;
 }
-
+// website mast dikh rahi h
 const PostTab = async ({ currentUserId, accountId, accountType }: Props) => {
   let result = await fetchUserPosts(accountId);
 
@@ -20,7 +20,7 @@ const PostTab = async ({ currentUserId, accountId, accountType }: Props) => {
           key={post._id}
           id={post._id}
           currentUserId={currentUserId}
-          parentId={post.parent.parentId}
+          parentId={post.parentId}
           content={post.text}
           author={
             accountType === "User"
@@ -34,6 +34,7 @@ const PostTab = async ({ currentUserId, accountId, accountType }: Props) => {
           community={post.community}
           createdAt={post.createdAt}
           comments={post.children}
+          likes={post.likes}
         />;
       })}
     </section>

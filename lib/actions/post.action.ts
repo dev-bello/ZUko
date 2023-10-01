@@ -23,7 +23,7 @@ export async function createPost({ text, author, communityId, path }: Params) {
     });
 
     await User.findByIdAndUpdate(author, {
-      $push: { post: createdPost._id },
+      $push: { posts: createdPost._id },
     });
 
     revalidatePath(path);
@@ -129,5 +129,35 @@ export async function addCommentToPost(
     revalidatePath(path);
   } catch (error: any) {
     throw new Error(`Error adding comment to post: ${error.message}`);
+  }
+}
+
+export async function addLikeToPost(
+  postId: string,
+  userId: string,
+  path: string
+) {
+  connectToDB();
+
+  try {
+    const postToLike = await Post.findById(postId);
+
+    if (!postToLike) {
+      throw new Error("Post not found");
+    }
+
+    const userHasLikedPost = postToLike.likes.includes(userId);
+
+    if (userHasLikedPost) {
+      postToLike.likes.remove(userId);
+    } else {
+      postToLike.likes.push(userId);
+    }
+
+    await postToLike.save();
+
+    revalidatePath(path);
+  } catch (error: any) {
+    throw new Error(`Error adding like to Post: ${error.message}`);
   }
 }

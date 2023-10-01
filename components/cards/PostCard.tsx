@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import LikePost from "../forms/LikePost";
 
 interface Props {
   id: string;
@@ -23,6 +24,7 @@ interface Props {
     };
   }[];
   isComment?: boolean;
+  likes: [];
 }
 
 function PostCard({
@@ -35,6 +37,7 @@ function PostCard({
   createdAt,
   comments,
   isComment,
+  likes,
 }: Props) {
   return (
     <article
@@ -68,6 +71,12 @@ function PostCard({
 
             <div className={`${isComment && "mb-10"} mt-5 flex flex-col gap-3`}>
               <div className="flex gap-3.5">
+                <LikePost
+                  likes={likes}
+                  postId={id}
+                  currentUserId={currentUserId}
+                />
+
                 <Link href={`/post/${id}`}>
                   <Image
                     src="/assets/reply.svg"
@@ -77,13 +86,6 @@ function PostCard({
                     className="cursor-pointer object-contain"
                   />
                 </Link>
-                <Image
-                  src="/assets/heart-gray.svg"
-                  alt="share"
-                  width={24}
-                  height={24}
-                  className="cursor-pointer object-contain"
-                />
               </div>
 
               {isComment && comments.length > 0 && (

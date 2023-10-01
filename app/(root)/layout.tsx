@@ -1,48 +1,42 @@
 import { ClerkProvider } from "@clerk/nextjs";
 import "../globals.css";
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import Topbar from "@/components/shared/Topbar";
 import LeftSidebar from "@/components/shared/LeftSidebar";
 import RightSidebar from "@/components/shared/RightSidebar";
 import Bottombar from "@/components/shared/Bottombar";
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: 'ZUko',
-  description: 'A Community Social Media App'
-}
-
+  title: "ZUko",
+  description: "A Community Social Media App",
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <ClerkProvider>
       <html lang="en">
-      <body className={inter.className}>
-        <Topbar />
+        <body className={inter.className}>
+          <Topbar />
 
-        <main className="flex flex-row">
-      <LeftSidebar/>
+          <main className="flex flex-row">
+            <LeftSidebar />
 
-    <section className="main-container">
-      <div className="w-full max-w-4xl">
-      {children}
-      </div>
-    </section>
-      <RightSidebar/>
+            <section className="main-container">
+              <div className="w-full max-w-4xl">{children}</div>
+            </section>
+            <RightSidebar />
+          </main>
 
-        </main>
-        
-        
-        <Bottombar/>
+          <Bottombar />
         </body>
-    </html>
+      </html>
     </ClerkProvider>
-    
-  )
+  );
 }
