@@ -14,7 +14,9 @@ async function Page() {
 
   return (
     <>
-      <h1 className="head-text">Create Post</h1>
+      <h1 className="head-text">
+        Create <span className="blue_gradient">Post</span>
+      </h1>
 
       <PostPost userId={userInfo._id} />
     </>

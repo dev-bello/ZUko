@@ -12,9 +12,9 @@ export const sidebarLinks = [
   },
 
   {
-    imgURL: "/assets/heart.svg",
+    imgURL: "/assets/notif.svg",
     route: "/activity",
-    label: "Activity",
+    label: "Notifications",
   },
   {
     imgURL: "/assets/search.svg",

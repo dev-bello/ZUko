@@ -9,7 +9,7 @@ export default async function Home() {
   return (
     <>
       <h1 className="head-text text-left">
-        Home <span className="orange_gradient">Page</span>
+        Home <span className="blue_gradient">Page</span>
       </h1>
 
       <section className="mt-9 flex flex-col gap-10">

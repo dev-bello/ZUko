@@ -28,7 +28,7 @@ const LikePost = ({
         <Image
           src={
             currentUserLiked
-              ? "/assets/heart-like.svg"
+              ? "/assets/heart-filled.svg"
               : "/assets/heart-gray.svg"
           }
           alt="heart"
@@ -37,7 +37,9 @@ const LikePost = ({
           className="cursor-pointer object-contain"
         />
       </div>
-      <p className="mt-1 text-subtle-medium text-gray-1">{likes.length}</p>
+      <p className="mt-1 ml-[-10px] text-subtle-medium text-gray-1">
+        {likes.length}
+      </p>
     </>
   );
 };

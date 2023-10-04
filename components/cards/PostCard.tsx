@@ -71,12 +71,6 @@ function PostCard({
 
             <div className={`${isComment && "mb-10"} mt-5 flex flex-col gap-3`}>
               <div className="flex gap-3.5">
-                <LikePost
-                  likes={likes}
-                  postId={id}
-                  currentUserId={currentUserId}
-                />
-
                 <Link href={`/post/${id}`}>
                   <Image
                     src="/assets/reply.svg"
@@ -86,6 +80,11 @@ function PostCard({
                     className="cursor-pointer object-contain"
                   />
                 </Link>
+                <LikePost
+                  likes={likes}
+                  postId={id}
+                  currentUserId={currentUserId}
+                />
               </div>
 
               {isComment && comments.length > 0 && (
