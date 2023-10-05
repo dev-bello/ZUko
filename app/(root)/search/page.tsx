@@ -10,7 +10,7 @@ import {
 import { currentUser } from "@clerk/nextjs";
 import Image from "next/image";
 import { redirect } from "next/navigation";
-
+//25:58
 async function Page() {
   const user = await currentUser();
 
