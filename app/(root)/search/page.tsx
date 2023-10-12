@@ -10,7 +10,7 @@ import {
 import { currentUser } from "@clerk/nextjs";
 import Image from "next/image";
 import { redirect } from "next/navigation";
-//25:58
+//19:48
 async function Page() {
   const user = await currentUser();
 
@@ -35,7 +35,7 @@ async function Page() {
       <div className="mt-14 flex flex-col gap-9">
         {result.users.length === 0 ? (
           <p className="no-result">
-            oops...! can't find anyone 🫠. I think you're the only user for now
+            oops...! can't find anyone 🫠. or maybe you're the only user for now
             😉
           </p>
         ) : (
